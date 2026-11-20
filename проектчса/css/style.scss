@@ -1,0 +1,502 @@
+$color: #333333;
+$color-w: #ffffff;
+$font-s: 24px;
+
+@mixin font($family: Rubik-Medium){
+    font-family: $family;
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+@font-face {
+    font-family: Rubik-Medium;
+    src: url(../fonts/Rubik-Medium.ttf);
+}
+@font-face {
+    font-family: Rubik-Regular;
+    src: url(../fonts/Rubik-Regular.ttf);
+}
+
+body {
+    font-family: Rubik-Regular, sans-serif; 
+}
+
+.container {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+
+.header {
+    min-height: 40px;
+    padding-top: 32px;
+    justify-content: space-between;
+    @include flex-center();
+}
+.header__logo {
+    @include flex-center();
+}
+.header__logo_title {
+    margin-left: 11.88px;
+    @include font;
+    color: $color;
+    font-size: 20px;
+}
+.header__search-bar {
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: #E5261E;
+    @include font;
+    margin-left: 32px;
+    cursor: pointer;
+}
+.header__search-text {
+    width: 320px;
+    height: 25px;
+    border: none;
+    border-bottom: 1px #333333 solid;
+    color: #333333;
+    font-size: 16px;
+    @include font;
+}
+.header__search-text::placeholder {
+    color: #828282;
+    font-size: 16px;
+    @include font($family: Rubik-Regular);
+}
+.header__search-text:focus {
+    outline: none;
+}
+.header__auth-btn {
+    width: 113px;
+    height: 38px;
+    background-color: #E5261E;
+    color: $color-w;
+    font-size: 16px;
+    @include font;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.header__auth-btn:hover {
+    background-color: #CC221B;
+}
+
+
+.nav {
+    width: 311px;
+    margin: 44px auto 32px auto;
+    height: 42px;
+    display: flex;
+    justify-content: space-between;
+}
+.nav__a {
+    @include font;
+    font-size: 28px;
+    color: #333333;
+    text-decoration: none;
+}
+.nav__a:hover {
+    color: #E5261E;
+    border-bottom: 2px #E5261E solid;
+    padding-bottom: 9px;
+}
+
+
+.gallery__new {
+    @include font;
+    font-size: $font-s;
+    color: #333333;
+    margin-bottom: 16px;
+}
+.gallery__movie {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+.gallery__movie-item {
+    width: 280px;
+    position: relative;
+}
+.gallery__movie-item-img {
+    border-radius: 8px;
+    width: 280px;
+    height: 370px;
+    object-fit: cover; 
+}
+.gallery__movie-item-p {
+    @include font($family: Rubik-Regular);
+    font-size: 20px;
+    color: #333333;
+    margin-top: 16px;
+}
+.gallery__movie-item-description {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 280px;
+    height: 370px;
+    background-color: rgba(51, 51, 51, 0.8);
+    border-radius: 8px;
+    color: #f2f2f2;
+    font-size: 16px;
+    @include font($family: Rubik-Regular);
+    line-height: 140%;
+    padding: 16px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.gallery__movie-item:hover .gallery__movie-item-description {
+    opacity: 0.8;
+}
+
+
+.genre-gallery {
+    display: flex;
+    justify-content: space-between;
+}
+.genre {
+    box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    width: 280px;
+    height: 208px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.comedy { background: linear-gradient(128.73deg, #F2C94C 8.44%, #F29A4A 91.36%); }
+.drama { background: linear-gradient(127.73deg, #F2994A 8.44%, #EB5757 91.36%); }
+.sci-fi { background: linear-gradient(127.83deg, #56CCF2 8.44%, #2F80ED 91.36%); }
+.horror { background: linear-gradient(127.73deg, #828282 8.44%, #333333 91.36%); }
+.genre__emj { font-size: 48px; }
+.genre__title {
+    @include font($family: Rubik-Regular);
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    top: 160px;
+}
+.genre:hover { opacity: 1; }
+
+
+.footer {
+    background-color: #F2F2F2;
+    margin-top: 72px;
+    display: flex;
+}
+.footer-container {
+    display: flex;
+    align-items: center;
+    height: 120px;
+}
+.footer__logo {
+    display: flex;
+    align-items: center;
+    margin-right: 39.98px;
+}
+.footer__info-adr {
+    @include font($family: Rubik-Regular);
+    font-size: 16px;
+    color: #333333;
+}
+.footer__info-a {
+    @include font;
+    text-decoration: none;
+    font-size: 16px;
+    color: #333333;
+}
+.footer__info-adr:nth-child(2) {
+    margin-bottom: 10px;
+    margin-top: 6px;
+}
+
+
+.tvchannels {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+    height: 676px;
+    padding-right: 4px;
+}
+.tvchannelsItem {
+    display: flex;
+    background-color: #F2F2F2;
+    height: 162px;
+    align-items: center;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+.tvchannelsItem_text { @include font($family: Rubik-Regular); }
+.tvchannelsItem_img { height: 64px; display: flex; width: 400px; object-fit: contain; }
+.tvchannelsItem_title { font-size: 20px; font-family: Rubik-Medium; }
+.tvWholeText { display: flex; flex-direction: column; gap: 17px; }
+
+
+.tvchannelItem_descr { 
+    display: flex; 
+    gap: 16px; 
+    align-items: flex-start;
+}
+.tvchannelTime { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    flex-shrink: 0; 
+}
+.tvchannelProgram { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    flex-grow: 1; 
+}
+
+.colorRed { color: #E5261E; }
+.tvchannels::-webkit-scrollbar { width: 8px; }
+.tvchannels::-webkit-scrollbar-track { color: #F2F2F2; }
+.tvchannels::-webkit-scrollbar-thumb {
+    background-color: #BDBDBD;
+    border-radius: 2px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+
+.loginButton {
+    background-color: #ffffff;
+    width: 304px;
+    height: 394px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+.loginTitle {
+    @include font;
+    font-size: 28px;
+    color: #333333;
+    text-align: center;
+    margin-top: 36px;
+    margin-bottom: 24px;
+}
+.inputFields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 36px;
+    width: 100%;
+    box-sizing: border-box;
+    flex-grow: 1; 
+}
+.loginField, .passwordField {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #828282;
+    @include font($family: Rubik-Regular);
+    font-size: 16px;
+    color: #333333;
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+    outline: none;
+    background: transparent;
+}
+.doRemember {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 8px;
+    @include font($family: Rubik-Regular);
+    font-size: 16px;
+    color: #333333;
+    margin-bottom: 32px;
+    cursor: pointer;
+}
+
+
+.rememberField {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+    width: 20px;
+    height: 20px;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none; 
+}
+.rememberField:checked::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 10px;
+    border: solid #E5261E;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-top: -2px;
+}
+
+.login_btn {
+    background-color: #E5261E;
+    color: #ffffff;
+    @include font;
+    font-size: 16px;
+    width: 113px;
+    height: 38px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: auto; 
+    margin-bottom: 36px; 
+}
+
+.modal[hidden] { display: none; }
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: modalFadeIn 0.3s ease forwards;
+}
+.modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+.modal__wrapper {
+    position: relative;
+    z-index: 1;
+    animation: modalSlideUp 0.3s ease forwards;
+}
+@keyframes modalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modalSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+
+@media (max-width: 768px) {
+    
+    .header {
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 16px;
+        margin-left: 15px;
+        margin-right: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header form {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header__search-text {
+        width: 100%; 
+    }
+    .header__search-bar {
+        margin-left: 16px;
+    }
+    .header__auth-btn {
+        width: 100%;
+    }
+
+    .nav {
+        width: 100%;
+        justify-content: center;
+        gap: 24px;
+        margin: 24px auto;
+    }
+    .nav__a {
+        font-size: 22px;
+    }
+    
+    .gallery__new {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .gallery__movie {
+        flex-direction: column; 
+        align-items: center;    
+        gap: 32px;
+        justify-content: center;
+        display: flex;  
+            
+    }
+    .gallery__movie-item {
+        width: 100%;
+        max-width: 343px; 
+    
+    }
+    .gallery__movie-item-img,
+    .gallery__movie-item-description {
+        width: 100%; 
+        height: auto;
+        aspect-ratio: 280 / 370; 
+    }
+
+    .genre-gallery {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .genre {
+        width: 100%;
+        max-width: 343px;
+    }
+
+    .tvchannelsItem {
+        flex-direction: column; 
+        align-items: flex-start;
+        height: auto;
+        padding: 16px;
+        gap: 12px;
+    }
+    .tvchannelsItem_img {
+        width: 100%;
+        object-position: left;
+    }
+    .tvchannels {
+        height: auto; 
+        overflow-y: visible;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        height: auto;
+        padding: 24px 16px;
+        gap: 16px;
+        text-align: center;
+    }
+    .footer__logo {
+        margin-right: 0;
+    }
+}
